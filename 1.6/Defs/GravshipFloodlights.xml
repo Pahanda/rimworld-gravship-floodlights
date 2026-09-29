@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThingDef ParentName="LampBase">
+		<defName>PB_WallFloodLamp</defName>
+		<label>wall flood lamp</label>
+		<description>An high-intensity, wall-mounted floodlight that illuminates a wide area. It is not bright enough to grow crops and is less powerful than a standalone floodlight.  It is intended for mounting on the walls of gravships, but can also work for terrestrial bases.</description>
+		<rotatable>true</rotatable>
+		<graphicData>
+			<texPath>Things/Building/Furniture/WallLamp/WallLamp</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawOffsetNorth>(0,0,0.9)</drawOffsetNorth>
+			<drawOffsetSouth>(0,0,-0.9)</drawOffsetSouth>
+			<drawOffsetWest>(-0.9,0,0)</drawOffsetWest>
+			<drawOffsetEast>(0.9,0,0)</drawOffsetEast>
+			<damageData>
+				<enabled>false</enabled>
+			</damageData>
+		</graphicData>
+		<uiIconPath>Things/Building/Furniture/WallLamp/WallLamp_MenuIcon</uiIconPath>
+		<altitudeLayer>BuildingOnTop</altitudeLayer>
+		<costList>
+			<Steel>40</Steel>
+		</costList>
+		<statBases>
+			<WorkToBuild>500</WorkToBuild>
+			<MaxHitPoints>75</MaxHitPoints>
+			<Mass>4</Mass>
+		</statBases>
+		<uiOrder>2993</uiOrder>
+		<researchPrerequisites>
+      <li>ColoredLights</li>
+    </researchPrerequisites>
+		<passability>Standable</passability>
+		<terrainAffordanceNeeded IsNull="True" />
+		<pathCost>0</pathCost>
+		<overrideMinifiedRot>North</overrideMinifiedRot>
+		<minifiedDrawOffset>(0, 0, 0.2)</minifiedDrawOffset>
+		<building>
+			<isEdifice>false</isEdifice>
+			<isAttachment>true</isAttachment>
+		</building>
+		<placeWorkers>
+			<li>Placeworker_AttachedToWall</li>
+		</placeWorkers>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>75</basePowerConsumption>
+				<powerUpgrades>
+					<li>
+						<researchProject>ColoredLights</researchProject>
+						<factor>0.5</factor>
+					</li>
+				</powerUpgrades>
+			</li>
+			<li Class="CompProperties_Styleable" />
+			<li Class="CompProperties_Glower">
+				<glowRadius>20</glowRadius>
+				<glowColor>(214,148,94,0)</glowColor>
+				<colorPickerEnabled>true</colorPickerEnabled>
+				<darklightToggle>true</darklightToggle>
+			</li>
+		</comps>
+	</ThingDef>
+	
+</Defs>
