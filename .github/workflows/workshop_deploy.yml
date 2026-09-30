@@ -13,6 +13,6 @@ jobs:
         with:
           username: ${{ secrets.STEAM_USERNAME }}          
           configVdf: ${{ secrets.STEAM_CONFIG_VDF }}
-          path: /
+          path: build
           appId: 294100
           publishedFileId: 3810534416
