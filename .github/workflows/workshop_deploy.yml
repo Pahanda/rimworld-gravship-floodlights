@@ -10,27 +10,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: releaseFilename
-        id: releaseFilename
-        run: |
-          echo "zip=gravship_floodlights_$(echo $EPOCHSECONDS).zip"
-
-      - name: createReleaseZip
+      - name: Create release zip
         uses: thedoctor0/zip-release@0.7.6
         with:
           type: 'zip'
-          filename: ${{ steps.releaseFilename.outputs.zip }}
+          filename: 'gravship_floodlights_release.zip'
           exclusions: '/.git/* /Sources/* /AddOn/* /.github/* .git* *.pdb'
   
       - name: Extract zip for workshop upload
         env:
-          ZIP_FILE: ${{ steps.releaseFilename.outputs.zip }}
+          ZIP_FILE: 'gravship_floodlights_release.zip'
         run: |
           sudo apt-get install unzip
           mkdir ws-upload/
           unzip $ZIP_FILE -d ws-upload
     
-      - name: workshopUpload
+      - name: Upload to workshop
         uses: m00nl1ght-dev/steam-workshop-deploy@v4
         with:
           username: ${{ secrets.STEAM_USERNAME }}          
