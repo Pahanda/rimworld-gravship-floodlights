@@ -13,10 +13,10 @@ jobs:
       - name: releaseFilename
         id: release
         run: |
-          echo "releasezip=gravship_floodlights_$(cat $EPOCHSECONDS).zip"
+          echo "releasezip=gravship_floodlights_$(echo $EPOCHSECONDS).zip"
 
       - name: createReleaseZip
-        uses: thedoctor0/zip-release@main
+        uses: thedoctor0/zip-release@0.7.1
         with:
           type: 'zip'
           filename: ${{ steps.release.outputs.releasezip }}
