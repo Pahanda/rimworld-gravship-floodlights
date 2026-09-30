@@ -23,7 +23,7 @@ jobs:
         with:
           type: 'zip'
           filename: 'gravship_floodlights_release.zip'
-          exclusions: '/.git/* /Sources/* /AddOn/* /.github/* .git* *.pdb'
+          exclusions: '/.git/* /Source/* /AddOn/* /.github/* .git* *.pdb *.sln'
   
       - name: Extract zip for workshop upload
         env:
@@ -40,4 +40,4 @@ jobs:
           configVdf: ${{ secrets.STEAM_CONFIG_VDF }}
           path: ws-upload
           appId: 294100
-          publishedFileId: 3810534416
+          publishedFileId: 3810566393
